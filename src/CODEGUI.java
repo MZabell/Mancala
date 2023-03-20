@@ -16,7 +16,7 @@ public class CODEGUI extends JFrame {
     public static ArrayList<Figure> circle4PL; //Circle
     public static ArrayList<Figure> circle5PL; //Circle
     public static ArrayList<Figure> circle6PL; //Circle
-    public static ArrayList<Figure> pitPL; //Player pit
+    public static ArrayList<Stone> pitPL; //Player pit
     public static ArrayList<Figure> listPlayer; //Circles
     public static ArrayList<Figure> listPLStones; //Stones
     public static ArrayList<JButton> listButtonsPL; //Player Buttons
@@ -31,7 +31,7 @@ public class CODEGUI extends JFrame {
     public static ArrayList<Figure> circle4AI; //Circle4
     public static ArrayList<Figure> circle5AI; //Circle5
     public static ArrayList<Figure> circle6AI; //Circle6
-    public static ArrayList<Figure> pitAI; //AI pit
+    public static ArrayList<Stone> pitAI; //AI pit
 
     DrawPanel dp;
 
@@ -72,6 +72,7 @@ public class CODEGUI extends JFrame {
         for (int i = 0; i < 6; i++) { //player circles
             listPlayer.add(new Circle());
         }
+        //listPlayer.add(new Oval());
 
 
 
@@ -102,6 +103,7 @@ public class CODEGUI extends JFrame {
         for (int j = 0; j < 6; j++) { //AI Circles
             listAI.add(new Circle());
         }
+        //listAI.add(new Oval());
 
         x = 0;
         for (int i = 0; i < 6; i++) { //AI Buttons
@@ -120,13 +122,17 @@ public class CODEGUI extends JFrame {
             x += 200;
         }
 
-        for (int i = 0; i < 14; i++) { //adder arraylist to holes
+        for (int i = 0; i < 12; i++) { //adder arraylist to holes
+            if (i == 6) {
+                holes.add(pitPL);
+            }
             holes.add(new ArrayList<>());
         }
+        holes.add(pitAI);
 
         int k = 0;
         for (ArrayList<Stone> al : holes) { //adder stones to arraylist start psition
-            if (k != 6 && k != 11) {
+            if (al != pitPL && al != pitAI) {
                 for (int i = 0; i < 4; i++) {
                     al.add(new Stone());
                 }

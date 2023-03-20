@@ -36,14 +36,16 @@ class DrawPanel extends JPanel {
             s.draw(g, 150 + x, 520);
             x += 200;
         }
-        new Oval().draw(g, 1150, 255); //Player Pit
+       // CODEGUI.listPlayer.get(6).draw(g, 1150, 255); //Player Pit
+        new Oval().draw(g, 1150, 255);
 
         x = 0;
         for (Figure s : CODEGUI.listAI) { //draw Circles
             s.draw(g, 150 + x, 160);
             x += 200;
         }
-        new Oval().draw(g, 30, 255); //AI Pit
+        //CODEGUI.listAI.get(6).draw(g, 30, 255); //AI Pit
+        new Oval().draw(g, 30, 255);
 
         g.setFont(new Font("Times New Roman", Font.BOLD, 25));
         g.drawString(CODEGUI.PlayerName + "-PIT", 1130, 245);
@@ -105,14 +107,17 @@ class DrawPanel extends JPanel {
             if (al.isEmpty() && count < 6) {
                 CODEGUI.countersPL.get(count).setCount("");
             }
-            if ( count < 12) {
+            if (count < 12) {
                 for (Stone s : al) {
                     if (count2 < 4) {
                         if (count2 == 2) {
                             y = 30;
                             x = -10;
                         }
-                        s.draw(g, CODEGUI.allCups.get(count).getX() - x, CODEGUI.allCups.get(count).getY() - y);
+                        //if (al != CODEGUI.pitPL && al != CODEGUI.pitAI) {
+                            s.draw(g, CODEGUI.allCups.get(count).getX() - x, CODEGUI.allCups.get(count).getY() - y);
+                            System.out.println(count);
+                       // }
                         x += 40;
                         count2++;
                     } else if (count < 6) {
@@ -127,8 +132,8 @@ class DrawPanel extends JPanel {
     }
 
     int checkScore() {
-            return CODEGUI.holes.get(6).size();
-            //System.out.println(PLScore);
+            System.out.println("Score: " + CODEGUI.pitPL.size());
+            return CODEGUI.pitPL.size();
 
             //PLScore = CODEGUI.holes.get(11).size();
     }

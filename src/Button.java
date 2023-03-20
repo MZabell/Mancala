@@ -21,10 +21,10 @@ public class Button extends JButton implements ActionListener {
 
         int counter = 1;
         for (Stone s : CODEGUI.holes.get(CODEGUI.listButtonsPL.indexOf(this))) {
-            if (CODEGUI.listButtonsPL.indexOf(this) + counter >= 12) {
+            if (CODEGUI.listButtonsPL.indexOf(this) + counter >= 14) {
                 counter = 1;
             }
-            CODEGUI.holes.get(CODEGUI.listButtonsPL.indexOf(this) + counter).add(s);
+                CODEGUI.holes.get(CODEGUI.listButtonsPL.indexOf(this) + counter).add(s);
             counter++;
         }
         CODEGUI.holes.get(CODEGUI.listButtonsPL.indexOf(this)).removeAll(CODEGUI.holes.get(CODEGUI.listButtonsPL.indexOf(this)));
